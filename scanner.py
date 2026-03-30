@@ -80,10 +80,6 @@ def scan_document(image_path, output_folder):
     # Apply perspective transform
     warped = four_point_transform(orig, screenCnt.reshape(4, 2) * ratio)
     
-    # Convert to grayscale and threshold
-    warped = cv2.cvtColor(warped, cv2.COLOR_BGR2GRAY)
-    T = cv2.threshold(warped, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
-    
     # Save result
     filename = os.path.basename(image_path)
     output_path = os.path.join(output_folder, f"scanned_{filename}")
