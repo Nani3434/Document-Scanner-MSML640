@@ -87,7 +87,7 @@ def scan_document(image_path, output_folder):
     # Save result
     filename = os.path.basename(image_path)
     output_path = os.path.join(output_folder, f"scanned_{filename}")
-    cv2.imwrite(output_path, T)
+    cv2.imwrite(output_path, warped)
     
     print(f"  ✓ Successfully scanned! Saved to: {output_path}")
     return True
